@@ -1,0 +1,35 @@
+Windows Command Line:
+	A command line interpreter(CLI) application available on most Windows operating systems
+	Have to explicitly request administrative prompt
+	Administrative prompt goes to C:\Windows\system32
+
+Command Line Navigation:
+	Change to "D:" drive by typing "d:"
+	dir shows files and directories in the current directory
+	dir /A shows hidden files
+
+Commands:
+	mkdir
+	copy <source> <destination>
+	robocopy /S copies all subdirectories excluding empty
+	move <source> <destination>
+	del <filename>
+	rmdir<directory>
+	more shows the contents of the file one page at a time
+	find searches inside files for a specified string of text
+		2>nul hide error messages
+	where finds files 
+		/R makes it recursive
+
+Networking:
+	ifconfig shows current networking settings
+	Set ip using:
+	net used to manage almost all aspects of a network
+	mount a drive using net use
+
+Command Line user management:
+	View all user accounts using net user
+	Add new user using net user /add <username> <password>
+	Remove a user using net user /delete <username>
+	Add user to group using net localgroup <group name> /add <username>	 
+		netsh interface ip set address <connection name> static <IP><subnet> <gateway>

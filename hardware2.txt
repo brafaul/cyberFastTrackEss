@@ -1,0 +1,47 @@
+CPU Components:
+	The Control Unit is the part of the CPU responsible for directing electrical signals to the computer in order to execute program instructions
+	The Arithmetic Logic Unit (ALU) is the part of the CPU that performs arithmetic and logical operations
+		Can carry out four kinds of arithmetic Addition, Subtraction, Multiplication, and Division
+		Can carry out three kinds of logical operations Equal-To, Less-Than, and Greater-Then
+			Can also do NOT and OR operations
+	The CPU has its own memory, called memory registers
+		Faster than RAM since they are closer to the CPU and the signals have less distance to travel
+		Downside is there are a limited number, and can only hold hold a extremely limited amount of data
+
+CPU Registers:
+	In 32-bit architecture, each memory register can hold 32 bits of data, same for 64-bit architecture
+	On a 32-bit Intel CPU (x86) there are four memory registers
+		-EAX
+		-EBX
+		-ECX
+		-EDX
+	Can split each register into parts
+		-AX refers to the lower 16 bits of the 32-bit EAX register
+		-AL refers to the lower 8 bits of AX register, AH refers to higher 8 bits
+	There are registers that cannot be split up into parts
+		-ESP
+		-EBP
+		-ESI
+		-EDI
+		Even though these are called general purpose registers, they are used for very specific purposes and using them to store data can cause unintended consequences.
+		Can be split into 16 bits, but cannot be split further
+	ESP is the Stack Pointer register, it contains a memory address, which points to the top of the current stack frame in RAM
+	EBP is the base pointer, points to the bottom of the current stack frame in RAM
+	ESI (Source Index) is typicaly used to hold a memory address of data when data is being used as a source in an operation
+	EDI (destination index) holds the destination memory address when you are copying data
+	Few registers that can be freely used by programs are know as special purpose registers
+		EIP is know as the instruction pointer, holds the memory address of the next instruction the CPU is going to execute
+
+Fetch-Decode-Execute:
+	The control unit fetches the next instruction from RAM
+	The control unit decodes the instrction and retrieces the necessary data from memory and places it into the ALU
+	The alu executes the instruction and stores the result in a register of RAM
+
+Stack and Heap:
+	Two sections of RAM, the stack and the heap
+	The Stack is structured and ordered
+		-When you run a program, the instructions are loaded onto the stack
+		-Each function is assigned an area of memory called a stack frame
+		-At the bottom of stack frame is the return pointer, When CPU enters a functions, it saves the previous value of EIP to the bottom of stack frame
+		-When CPU gets a ret instruction, it loads the return pointer into the EIP
+	Heap is unstructured area of memory used to store data

@@ -1,0 +1,53 @@
+Processes:
+	Ps shows a full list of processes
+		By default only shows processes running under current user
+		ps aux lists all processes
+		same for ps -ef -f
+		ps auxf gives more information
+	kill and the PID can be used to kill a running process
+	force quit with -9
+
+Pipes and Redirects:
+	> Overwrites
+	>> Appends
+
+Passwd File:
+	Holds info about what user accounts exist on the sytem
+	On older systems it stored the password hash
+	x marks where the pass in the shadow file should be placed
+	Alot of programs need to read passwd
+	shadow file is readable only by root
+
+Scheduled Tasks:
+	crontab -l lists all scheduled tasks for the user
+	crontab -e edits cron jobs
+	Each entry in the crontab must use this structure
+		Minute Hour DayOfMonth DayOfWeek Command
+		* specifies every and - specifies ranges
+
+Package Managers:
+	Programs designed to simplify the installation of new software on Linux
+	apt package manager present on most Linux distributions that havve been based on Debian
+	apt update updates the list of sources
+	apt upgrade upgrades the  software packages on your system
+	yum is found in Fedora and Fedora-based distributions
+	yum update updates all software on the system
+
+Packages:
+	.deb files can be installed using dpkg -i
+	list installed packages dpkg -l
+	remove a package using dpkg -r
+	.rpm files can be installed using rpm command
+	rpm -Uvh fileName
+	list installed packages with rpm -qa
+	remove packages with rpm -e fileName
+
+Building from Source:
+	1. Cd into directory
+	2. Run the configure script
+	3. run make
+	4. run sudo make install
+	make configure must be run as root
+
+SSH: 
+	specify key file with ssh -i path/to/keyfile username

@@ -1,0 +1,26 @@
+Tab Completion:
+	Hitting tab twice prints out all possible matches
+
+Previous Commands:
+	CTRL + R brings up reverse command search
+	Hit CTRL + r to keep going back in the searches
+
+History:
+	Previously used commands are stored in user's home folder in .bash_history
+	Can also just use the history command
+	History -c clears the history file
+
+Parameters:
+	-a
+	--all
+	Not all parameters require dashes
+
+Interrupts:
+	Some commands have a specfic way of quitting the program
+	Quit top using ctrl + c
+	ctrl + z suspends a program, can resume it using fg
+	bg keeps a program running but puts it in the background
+	Some programs don't let you use ctrl + x
+
+Clearing the terminal:
+	ctrl + l has the same function as clear

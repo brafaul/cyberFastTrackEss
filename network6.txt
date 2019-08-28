@@ -1,0 +1,56 @@
+ICMP:
+	Internet Control Message Protocol: protocol designed to transmit error messages and operational info between hosts on a network
+	Doesn't communicate data and isn't typically used in end-user applications
+	For the most part, used exclusively by network devices
+	Each packet consists of a type and a code, together they describe the packet's purpose
+
+DHCP:
+	Dynamic Host Configuration Protocol, allows a DHCP server present on the network to assign network configuration setttings to each host automatically when they join the network
+	Only one DHCP server should be used on any network
+	Not uncommon for DHCP to be configured with static IP addresses for specific devices
+
+OSI Model:
+	Open Systems Interconnection is a way of describing the way computers communicate with each other over a network
+	Theoretical model, so not all protocols will fit neatly into the seven layers
+	Seven Layers are:
+		-Layer 7-Application
+		-Layer 6-Presentation
+		-Layer 5-Session
+		-Layer 4-Transport
+		-Layer 3-Network
+		-Layer 2-Data Link
+		-Layer 1-Physical
+	You start at the top and work your way down, each layer transforms the data until the physical layer the data is converted to electrical signals
+	The Computer recieving the signals starts at the bottom and works its way up the model
+	Application Layer: EX: HTTP or FTP
+	Presentation Layer: EX:XML or JSON, deals with formatting data in a way that the intended recipient can understand. Encryption also happens in the presentation layer
+	Session Layer: Handles opening, closing, and managing connections between computers
+	Transport Layer: Responsible for end-to-end connections between computers on a network EX: TCP and UDP
+	Network Layer: Responsible for routing the packet over the internet EX: IP
+	Data Link Layer: Responsible for encoding and decoding packets into bits
+	Physical Layer: Responsible for converting the packets into electrical signals
+
+TCP/IP Model:
+	Another theoretical model, only has four layers
+		-Layer 4-Application
+		-Layer 3-Transport
+		-Layer 2-Internet
+		-Layer 1-Network Access
+	Application Layer: Same as OSI, but also includes presention and session layer EX: HTTP and FTP
+	Transport Layer: Same as OSI
+	Internet Layer: Same as OSI
+	Network Access Layer: Combo of data link and physical layers from OSI model
+
+Packet Headers:
+	Process of encapsulation starts with application level data, and occurs by adding headers to the data
+	HTTP/1.1 GET /, is a request for the index page of a site made by a browser
+	First thing that happns is a TCP header is added to the data
+	A TCP header consists of a source port, a destination port, a sequence number, and acknowledgement number and anything else the TCP protocol implements
+	Next stage is to add the IP header, consists of info such as the version, source IP address, the destination IP address, the size of the packet and anything else the IP protocol implements
+	Next stage is to add teh data link layer protocol(Ethernet in this example) Ethernet frame consists of header and footer, contains of the source MAC address, destination MAC address and anything else the Ethernet protocol implements 
+	Finally the packet is converted to eletrical impulses
+	On receiving end, it happens in the reverse
+
+ARP:
+	Address Resolution Protocol: Allows source computer to discover the MAC address of destination computer
+	Only for local netowrk

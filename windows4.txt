@@ -1,0 +1,31 @@
+PowerShell:
+	Much more powerful than command prompt
+	based on the .NET framework
+	cmdlet lightweight command used in PowerShell
+		usually does one small thing then returns the result as a .NET object
+		not standalone executables
+	PowerShell ISE:
+		Integrated Scripting Enviroment allows you to write, test and run powershell scripts
+
+PowerShell Commands:
+	each cmdlet is made up of a verb and a noun
+	-? gets info about a command
+	Get-Command gets all cmdlets that use a certain noun or verb			Get-Command -Noun Computer
+	Get-ChildItem similar to dir
+	Get-Content displays the contents of a file
+	Get-Process gathers information about running processes on the machine
+	Start-Process starts running a new process
+		Start-Process -FilePAth notepad
+	Stop-Process
+	Get-Process -Name notepad gets the process id
+	Get-Alias
+	Set-Alias
+		Set-Alias -Name list -Value Get-Children
+
+PowerShell Objects:
+	cmdlets are designed to deal with objects
+	Can see what info is stored inside the result of a command using Get-Member
+	Properties contain information about the object
+	Methods allow us to manipulate the object
+	Declare variables using $
+		$child_item = Get-ChildItem

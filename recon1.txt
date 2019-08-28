@@ -1,0 +1,66 @@
+Google and Robots:
+	Keywords 'site:' and 'filetype:'
+	Download pages with wget
+	Use exiftool to view metadata
+	Metagoofik is a toll that when given a domain can find files of a certain type, download them, and look at the metadata to find people and email addresses
+		-d is for the domain
+		-t identifies the kinds of files to look for
+		-l indicates how far back into the Google search to look
+		-o folder to save the downloaded files into
+		-f name of file where the results are saved  
+	Use pdftk to remove metadata and exiftool:
+		exiftool -all:all= fileName.pdf
+	robots.txt is a file containing a list of pages on a site you don't want to be indexed by a search engine
+		Better to use robots meta tag on pages you want hide:
+			<meta name="robots" content="noindex" />
+
+Job Postings and LinkedIn:
+	One of the best ways to get an idea of the technology and set up of target is to look at their job postings in IT related fields
+	Should could the name of the company confidential in job listings until the applicant is comes in for an interview
+	Can look up emails on LinkedIn to find Job Titles and Skills
+	Company House is a good source of information on officers
+
+Wordlists and CEWL:
+	Can make a custom wordlist using cewl:
+		-v: Verbose
+		-d1: Only crawl to a max depth of 1 link
+		-w words.txt: Output the words found to words.txt
+
+Prior Breaches:
+	Any password strong enough for a attacker to have difficulty guessing is not easy to remember, so people use the same password across multiple services
+	Run your email address into haveibeenpwned.com and find any breaches you were disclosed in
+
+Whois:
+	WHOIS system is responsible for keeping track of who is responsible for a domain name
+	Many people use WHOIS privacy services where the details provided are actually that of a third party company who foward info to the actual person responsible
+	Can search whois information using the whois command on linux, but can also use third party sites
+
+DNS Recon:
+	Can get a lot of information from DNS alone
+	First thing to watch for is the ability to preform a zone transfer, almost never works, but worth checking because a zone transfer will allow you to pull off a complete list of every DNS record for the domain in question
+	As long as we know that the name server is authorative for a domain, and has been misconfigured to allow zone transfers from uauthorized services, we can attempt a zone transfer with:
+		host -l myfakedomain.local 192.168.0.92
+	Next best thing is to try to enumerate DNS records using a wordlist, can do this with DNSMap using
+		dnsmap myfakedomain.local
+		can specify third party wordlists using -w parameter
+	Should avoid exposing external DNS to the public internet, have two DNS servers, one of which is internal to the company and handles DNS interal servers on the network, the other should handle internet facing services
+	Once you have a list of website, you can find directories that are not linked directly in the public areas of the site
+	For this we can use 'dirb':
+		dirb http://myfakedomain.local /usr/share/wordlists/dirb/small.txt
+	Don't put anything on the public internet that you don't want people to find, unless it is password protected
+	Watch your server logs
+
+NMap:
+	Connect scan is the most basic type of scan you can do in NMap
+		-Upside: Don't need root permissions on the system you are scanning on to use it
+		-Downside: Quite obvious and many firewalls or IDS systems will flag it
+	-vv stands for 'use the second level of verbosity'
+	NMap by default only scans the top 1000 most common ports, override this with -p-
+	Syn Scan: Faster and stealthier alternative to the connect scan
+		-Requires root access on the system you are scanning from
+	Can use nc ip portNum to connect to a port and find out what service is running
+	Can also use -sV for version detection with NMap
+	NMap can also fingerprint the operating system to a fairly good degree of accuracy, using the '-O' parameter
+	Use the -sU parameter to do a UDP scan
+	Always patch your software every few weeks
+	A good firewall or Intrusion Detection System will usually pick up orts scans and block them

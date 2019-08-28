@@ -1,0 +1,33 @@
+Bit:
+	The smallest unit of data that can be stored on a computer system
+	Stored as a boolean value
+	A byte is 8 bits
+	1 kilobyte(kB) is 1000 bytes
+	1 kibibytes(KiB) is 1024 bytes
+Alternate Number Bases:
+	Table headerings are factors of whatever base the system is
+	Binary is a base 2 system
+		-Often converted to base 16(hexadecimal) to make number shorter
+	Notation is used to specify what base a number is in
+		-0d is denary
+		-0b is binary
+		-0x is hexadecimal
+
+Binary:
+	Kenw this
+
+Hexadecimal:
+	Base 16
+
+ASCII:
+	American Standard Code for Information Interchange
+	Orginal ASCII was 7 bits wide and supported 127 characters
+	Extended ASCII is 8 bits and supports 255 characters
+	Unicode supports a much larger character set so languages that don't use the latin alphabet can be supported
+
+File Headers:
+	Most files type have a header at the beginning of the file that tells us what kind or file it is
+	Often more accurate than looking at the file extension
+	Often called 'magic numbers', 'magic bytes', and 'file signatures'
+	Plain text files don't have headers	
+	

@@ -1,0 +1,72 @@
+Types of Networks:
+	A set of computers that are connected together
+	Largest netwwork is the internet
+		-The internet is a WAN(Wide Area Network)
+		-Smaller networks are called LANs (Local Area Networks)
+	Typically we connecy computers over a LAN using Ethernet cables or  radio signals(WiFi)
+		-LAN has a router that connects to the internet
+	The way a network is physically laid out is called the network 'topology'
+		-Most common seen is LAN is the 'star' topology
+		-This is where each computer in a network is connected to a central point, such as a switc
+		-Star topology is easy to maintain
+		-Another topology is the 'bus', where all computers are connected by the same Ethernet cable
+		-At the end of the cable are terminator, which discard data that has not been read by a computer
+		-Not very common as only one computer can communicate at any time
+
+Network Hardware:
+	A switch is a device that connects computers on a network together
+		-The device that sits in the middle of a star topology
+		-Recieves all data on the network and decides which cable to send the information to, based on the computer the information is destined for
+	A hub is similar to a switch, except it sends all data to all computers connected to the hub
+		-The computer decides if the data was intended for it or if it should discard
+		-Hubs were used before switches became commonplace
+		-Wireless access points(and wireless routers) are hubs
+		-Wireless hubs can only send data over radio waves
+	A router is a device that connects two networks together
+		-Most commonly used to connect a LAN to the internet
+	NIC or a Network Interface Card which allows the computer to interface with a network
+		-Computers that use both wireless and ethernet have 2 NICs
+
+IP addresses:
+	Identifies your computer on a network and allows other computers on the network to access it
+	Each NIC is assigned an IP address when it connects to the network
+	There are two types of IP addresses, public(external) and private(internal)
+	Private IP address is assigned to your computer on the local networ
+	Most home and small business setups, the entire LAN will have only a single public IP address
+		-The ability to share an IP address is handled by the Network Address Translation(NAT)
+
+MAC Addresses:
+	Media Access Control
+	Burned into the NIC when it is produced
+	Meant to be globally unique
+	Used to identify computers on a local network
+	Don't change like private ip addresses
+
+Packets:
+	A data packet is a unit of data, which can be transmitted over the network
+	All data must be placed into packets before it can be transmitted
+	Packets also contain info such as the destination IP address and MAC address
+	Typically quite small pieces of data
+		-Large pieces of data must be split into several packets of data
+	Maximum packet size depends one several factors typically 1500 bytes - 64 KiB
+
+Protocols:
+	A set of rules that govern how two or more parties interact with each other
+	Two key networking protocols, TCP(Transmission Control Protocol) and UDP (User Datagram Protocol)
+
+TCP Protocol:
+	Widely used on the internet
+	Designed with the reliable delivery of data in mind
+	Handshake is preformed then data is sent between computers
+	Includes measures to retransmit data that was lost or corrupted
+	Transmits data comparitively slow
+	A port is a communication chanel for applications running on the operating system to listen to
+		-Ports are numbered 0 and 65535
+	TCP protocol has its own port range
+		-UDP 80 and TCP 80 are different ports
+
+UDP Protocol:
+	Doesn't require a handshake
+	Doesn't detect if a data packet is missing
+	Commonly used in video chat, voice chat. and online video games
+	Seperate from TCP ports

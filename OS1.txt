@@ -1,0 +1,30 @@
+Operating Systems:
+	Software that runs on the computer which manages how the computer operates
+
+Kernel:
+	First part of the operating system code to be loaded, and has complete control over the computer
+	Responsible for controlling access to the computer's most sensitive information and functionality, and is loaded into a protected region of memory to prevent accidental or malicious corruption by other programs
+	Responsible for loading new programs, handling input and output between peripherals and managing access to the hardware's shared resources, such as the RAM and hard drive
+
+Process:
+	A series of actions or steps taken in order to achieve a particular end
+	Created on a computer when a program is requested to be loaded
+	Some programs create multiple proccesses
+
+Interrupt:
+	A signal that is sent to the CPU, which alerts the CPU to a task requiring its immediate attention
+	Used in situations where immediate processing is required
+	Hardware Interrupts: include mouse and keyboard when new input is availible
+	Software Interrupts: May generate an interrypt when it wants to open a file for example, program can use an interrupt to ask the kernel to perform an operation on its behalf
+
+Bootloader:
+	Program loaded by the BIOS when a computer is first turned on and is responsible for loading the operating system
+	Necessary due to the complexity that would be involved in creating a BIOS capable of loading hundreds of different operating systems
+	Installed at the same time as the operating system from place on hard drive by the bios
+
+BIOS: 
+	"Basic Input Output System"
+	Stored on the ROM on the motherboard of your computer
+	First program that is loaded and prepares the hardware ready to load te bootloader 
+	Modern computers almost exclusively use UEFI(Unified Extensible Firmware Interface)
+	UEFI is succesor to BIOS, more versatile and secure manner	

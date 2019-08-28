@@ -1,0 +1,9 @@
+Kali Linux:
+	Made by a company called Offensive Security
+	Comes with a variety of useful tools pre-installed
+
+Wordlists:
+	Located in /usr/share/wordlists
+
+updatedb
+located filename

@@ -1,0 +1,44 @@
+User Accounts:
+	Default acounts are always created when you install windows:
+		Administrator: Full control over machine, somethings it can't do, can be used to manage other users and install applications
+		Guest: Used by those that don't have an account on the computer, limited in what it can do
+		Default	Account: Used as a template for all new accounts
+	Account Types:
+		Windows has three account types Administrator, Standard, and Child
+		lusrmgr.mc can be used to create new users
+
+Groups:
+	Windows comes with several groups already built in
+		Administrators: Can change things that affect all users
+		Users: Default group most new users will be assigned to, can not install new software or make similar changes
+		Remote Desktop Users: These user can connect to the computer remotely
+		Guests: Do not have permanent profile on the machine
+
+User Account Control:
+	Works by assingning tokens whenever a user signs in
+	All users are given a standard token which is used to run applications with a limited level of access
+	When a admin wants to make changes to the system an administrative token is released and used to run the application with all the powers that come from being an admin
+		These tokens are valid for as long as the application is running
+	There are four UAC options:
+		Always Notify: Prompt is always shown when apps try to install software or make changes tot computer and when you try to change windows settings
+		Notify me only when apps try to make changes to my computer:
+		Same as above without desktop dimming:
+		Never Notify:
+
+File Permissions:
+	Each file or folder has an Access Control List(ACL) which stores who is allowed which level of access
+	Access this list through properties then head to the security tab
+	All permissions can be allowed or denied, and a deny will always override an allow
+	Default action when a user does not have access is to deny
+	Files have the following permissions
+		Full Control
+		Modify: Read, write, modify, and execute the file
+		Read and Execute: Allows you to see the files contents and execute it
+		Read: Allows you to see the files contents
+		Write: Allows you to write data to the file
+	Folders adds:
+		List Folder Contents: Display folder's contents, the contents of files inside, and run any programs in the folder
+
+Hidden Files:
+	When we hide a file, the hidden attribute is added
+	Can see hidden files under the View tab in Explorer settings

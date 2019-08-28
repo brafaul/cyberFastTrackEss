@@ -1,0 +1,16 @@
+What is Linux?:
+	Linux tends to refer to the Linux kernel
+	More of a class of operating systems than one single operating system
+	Desktop distributions come with a GUI(Graphical User Interface)
+
+Navigating the Linux GUI:
+	Dock is where you can save your frequently used applications
+	Start menu is like windows start menu
+	System Tray allows us to shut down, reboot, update or access settings
+
+Linux Terminal:
+	Orginally did not have a GUI and everything was done from the command line
+	Prompt is where you type in commands
+	When you open the terminal the program that runs is called the shell
+	BASH stands for Bourne Again shell
+	One of the earlier shell programs was called the Bourne shell		

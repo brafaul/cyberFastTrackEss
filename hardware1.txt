@@ -1,0 +1,80 @@
+Motherboard:
+	Has slots other components slide into
+	Different sizes:
+		-E-ATX, stands for extented ATX
+		-ATX, standard size
+		-micro-ATX
+		-mini-ITX
+	Most desktops use E-ATX and ATX, laptops use micro and smaller
+	Motherboards are classified by socket type they are compatible with
+		CPU must have compatible socket
+	Uses buses to transport data between components
+
+CPU:
+	The brain of computer
+	Responsible for executing instructions in computer programs
+	Connections laid out according to socket specification
+	Core is responsible for executing instructions
+		Modern computers often have more than one core
+	Clock speed measures instructions per second
+		4GHZ means a computer can execute 4 billion instructions per second
+	Context switching allows the computer to share processor time between applications
+
+RAM:
+	Random Access Memory
+	Gold connectors go into RAM slot on motherboard
+	Most common way to speed up a computer is to upgrade RAM
+	RAM is volatile, temporary
+	Pay attention to the type of RAM and speed
+		-DDR4 relatively new
+		-DDR3 2007
+		-Speed is measured in MHz megahurtz
+		- Motherboard compatibility means less than
+
+Storage:
+	Typically a hard drive or SSD(solid state drive)
+	Physical size is imporant in hard drives
+		3.5 inch hard drives are frequently used in desktop computers
+		2.5 inch ahrd drives used in laptops
+	Drives usually have a maximum capacity slightly lower than advertised
+	Mechanical hard drives contain moving parts
+		-Unrealible over long periods of time
+	Solid state drives have no moving parts
+		-More reliable and faster
+		-Significantly more expensive
+
+GPU:
+	Optional Component
+	Excels at number crunching
+	Does necessary calculations for displaying graphics 
+	Generally resides on a graphics card
+		Graphics card also has its own RAM
+	Often used to crack passwords
+
+Input Devices:
+	Any device that when connected to a computer, can send date to them
+	USB(universal serial bus)
+		USB 3.1 Transfer Speed: 10 Gbit/s
+
+Output Devices:
+	Any device that recieves data from the computer
+	EX: VGA, DVI, HDMI, and display port
+		Some modern monitors support USB-C video output
+
+Heat sinks:
+	Used to move heat away from sensitive components
+	Attached to components using thermal paste
+	Many motherboards incorporate small heat sinks into the motherboard design
+
+Power Supply:
+	Used to take power to the main power supply or battery
+	Usually connected to the motherboard, graphics card, hard drives and fans
+		-Other components generally powered by motherboard
+	Connectors
+		- four pin peripheral connector, powers fans
+		- SATA power connector, used to power hard drives
+		- ATX connection, motherboard
+			-motherboards use either 20 or 24 pins
+		- 12V power connector, power motherboard
+		-PCI-E power, graphics card
+		

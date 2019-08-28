@@ -1,0 +1,46 @@
+File Systems:
+	Each drive must be formatted with a file system
+	The file system determines how files are stored on the device and what features are offered
+	OS's usually have a list of file systems that are supported
+	Like a protocol for accessing files and saving files on physical storage media
+	Storage device is broken down into clusters, cluster size is determined by file system
+	Minimum file size is the cluster size
+		-Wasted space in cluster is known as 'slack space'
+	File systems store at least each two pieces of info per file
+		-Data in the file
+		-Metadata, usually conains at least the name and memory address of the file
+	Metadata is stored in an index that provides a list of files and locations where they can be found, index entry is removed when file is deleted
+	Cluster isn't removed from disk when deleted, just marked as overwritable
+
+FAT32 and exFAT:
+	Introduced with Windows 95
+	Uses a File Allocation Table to map each cluster
+	Doesn't support files larger than 4 GB
+	Doesn't support file permissions
+	exFAT is designed for USB drives and other removable media
+
+NTFS: 
+	Used by modern versions of Windows
+	Has many features including permission and encryption suport, and shadow copies
+	File size limit is so large it is effectively meaningless
+
+EXT3:
+	Older file system often used in Linux
+	Introduced in 2001
+	Supports permissions and encryption, but not shadow copy
+	Maximum file size is 2TB
+	Changes to disk are tracked in a seperate part of the file system known as the 'journal' 
+		Can help recover drive in the event of a disk corruption
+
+EXT4:
+	Modern file system that is used in linux
+	Introduced in 2008
+	Supports permissions and encryption, but no shadow copy
+
+HFS+:
+	Until recently used in MAC OS X
+	Supports permissions and encryption
+
+APFS: 
+	Recently introduced by Apple
+	Debuted on MAC OS HIgh Sierra	

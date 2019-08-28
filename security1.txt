@@ -1,0 +1,20 @@
+The Law:
+	Five main offences to be wary of:
+		Unauthorized access to computer material
+		Unauthorized access with intent to commit or facilitate the commission of further offfences
+		Unauthorized acts with intent to impair, or with recklessnes as to impair the operation of computer systems
+		Unauthorized acts causing or creating risk of serious damage to a computer system
+		Making, supplying, or obtaining articles for use in items 1-4 above
+	Breaking any of these laws could see you in prison with a min of two years and a max of life
+	If you are a pentester take precautions:
+		Get permission in writing and make sure it is signed
+		Make sure the person who granted you permission is authorized to do so
+		Make sure you have a breakdown of the scope of your permission. Which systems can you target? Is anything off-limits?
+	
+Getting Caught:
+	Many enterprise networks have centralized logging
+
+Practice:
+	vulnhub.com
+	overthewire.org/wargames/
+	

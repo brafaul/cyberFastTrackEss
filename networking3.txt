@@ -1,0 +1,45 @@
+Web Servers:
+	Are software applications that accept and process requests according the HTTP protocol
+	There are two types of web servers:
+		Generic Web Servers: multi-purpose applications that serve files that are in a certain folder of an operating system
+		Custom web server: programs that are purpose-built to serve a particular site
+	Most popular products under the generic category are Apache and Ngnix
+		Both are configured to use a folder as the 'web root': that will contain the files needed to run the website
+	Generic web servers are easy to set up and require no programming knowledge
+	Custom web servers, the routes are usually need to be programmed into the software
+		Often used by large complex web applications as they grant more freedom than generic web server
+	Typical web servers listen on either port 80(unecrypted) or 443(encrypted)
+
+HTTP Protocol in Depth:
+	Comes down to a series of requests and responses
+	A HTTP response consists of two parts: the reponse header and the response body
+		Header contains metadata, such as timestamp of the response, web server software that sent the repsonse and other factors
+	There are several kinds or requests supported by HTTP protocol
+		GET: ask to retrieve information from a specified resource
+		HEAD: ask to retrieve as a specified resource, but without the response body, retrieves only the metadata without the data. Not common, used by developers to test their site
+		POST: used to send data without expecting anything back	
+		PUT: used to ask the web server to store the data sent in the request at the path requested. Also not common
+		DELETE: deletes the resource specified in the request(if authorised), not commonly seen
+	Response is split into the response header and the response body
+		The body contains the data that was retrieved
+		The response header contains metadata about the response
+
+HTML: 
+	Markup Language, describes data
+	Uses tags
+	Is static, not based on user input
+	
+JavaScript:
+	Is a programming language designed to run inside a browser
+
+PHP: 
+	server-side programming language that generates HTML and sends it to the clients browsing the page
+	Executed by the web server, result is sent as a repsonse to an HTTP request
+
+Cookies and Local Storage:
+	Cookies:
+		Tiny file which a web server can create on a visitor's computer
+		Most common use to to save session ID
+	Local Storage:
+		Sites can also store files on your computer(up to 5MB) in the browser's local storage
+		Can be a sneakier way for sites to track users

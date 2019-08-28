@@ -1,0 +1,63 @@
+Red Team vs Blue Team:
+	Term orginated in the military
+	Red Team acts as the enemy forces, while the Blue Team acts as the defenders
+
+Defence in Depth:
+	Idea was for defensive positions to be prepared at several locations
+	In cybersecurity describes defending a system through several independent measures
+	Some layers should be preventative, but some should also focus on detecting a breach
+	Weakest approach is to defend all systems equally
+	Best approach is to identify critical assets which should have the heaviest protections built around them
+	Where certain risk factors cannot be mitigated, workarounds should be found
+
+Risk Management:
+	Risk is the likelihood of an attack multiplied by the pontential impact of the breach
+	Three areas of risk:
+		Confidentiality: Access to systems should only be shared amongst authorised persons or organisations
+		Integrity: Systems should be accurate, trustworthy, and complete
+		Availability: The system should be accessible when needed
+
+Critical Security Controls:
+	1. Inventory of Authorised and Unauthorised Devices: Manage, inventory, track, and correct all hardware devices on the network so only authorised devices are given access
+	2. Inventory of Authorised and Unauthorised Software:
+	3. Secure Configurations for Hardware and Software:
+	4. Continuous Vunerability Assessment and Remediation:
+	5. Controled use of Administrative Privileges:
+	6. Maintenance, Monitoring, and Analysis of Log Files:
+	7. Email and Web Browser Protections:
+	8. Malware Defences:
+	9. Limitation and Control of Network Ports, Protocols and Services:
+	10.Data Recovery Capability:
+	11. Secure Configurations for Network Devices such as Firewalls, Routers, and Switches
+	12. Boundary Defence: 
+	13. Data Protection:
+	14. Controlled Access Based on the Need to Know:
+	15. Wireless Access Control:
+	16. Access Monitoring and Control:
+	17. Security Skills Assessment and Appropriate Training to Fill Gaps:
+	18. Application Software Security:
+	19. Incident Response and Management:
+	20. Penetration Tests and Red Team Exercises:
+
+Stages of an Attack:
+	1. Reconnaissance:
+		Attacker picks the target and finds out as much information about the target as possible
+		By the end of this phase, the attacker should have an acccurate network map of any exposed services, a thorough understanding of the company and a list of likely hardware and software vendors in use on the internal network
+	2. Intial Exploitation:
+		Attackers goal is to gain a foothold on the network.
+		Looking at exposed network services, the  attacker will attempt to exploit any known vulnerabilities, may also discover new vulnerabilities.
+		Alternative ways include social engineering
+		By the end of this phase the attacker will have a presence on the network, but won't be able to maintain access over long periods of tiem
+	3. Establish Persistence & Escalate Privileges:
+		The attacker will want to maintain their access to the system and elevate their privilege level if necessary.
+		Could mean dropping a backdoor onto the system or finding some credentials to provide legitimate acess to the system
+		Attacker may need to exploit another service to gain access to an administrative account
+		By the end of this stage the attacker should have administrative access and be able to re-connect to the system at will
+	4. Move Laterally:
+		Attacker will try to spread from their intial foothold through to the rest of the network to achieve their goal
+		Unlikely that the intial foothold will contain the data the attacker needs
+		Attacker must spread through the network to reach key systems
+		By the end of this stage, the attacker will be on the key system that holds his end goal
+	5. Exfiltration
+		At this stage, the attcker will be trying to exfiltrate whatever data they were seeking	
+		By the end of this stage the hacker has one

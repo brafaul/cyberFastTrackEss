@@ -1,0 +1,21 @@
+What is Windows:
+	90% of all desktop computers run a version of Windows
+	Windows server version designed to run server
+	Active directory is a system that allows the server to communicate with windows desktops, allowing the admin to easily configure all connected desktops from one location
+	Server also has GUI
+	Windows IoT designed to run on low power computers
+	Version of windows for mobile devices
+	Xbox One game console also runs a version of Windows 10
+
+Windows Defender:
+	If disabled will automatically turn on after a period of time
+	Also has Windows Firewall
+		First time a program runs it will ask permission to get through firewall
+
+Registry:
+	Database of settings for both the operating system and for any applucations that support storing data in the registry
+	Settings are low-level are not meant to be changed or seen by the end user
+	Can view registry with a tool called 'regedit'
+
+Log Files:
+	Can view log files using the Event Viewer

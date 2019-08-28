@@ -1,0 +1,54 @@
+Superuser:
+	Essentially the admin account
+	Has total control and has permissions to do anything and everything
+	Always at least one superuser
+	Using root for daily activities is bad practice
+
+Navigation in the Terminal:
+	~ is shorthand for home folder
+	ls command is short for list
+		-l parameter prints in long form
+	cd stands for change directory
+	pwd stands for print working directory
+
+Folder Structure:
+	root of the file system known as '/'
+	bin: Typically used to store executable files(binary files). Will usually be system files, as opposed to ones the user installed
+	boot: Holds the files that Linux uses during the boot up process.
+	cdrom: cdrom tray is mapped to this folder
+	dev: Contains a folder and associated files for every hardware component on the system. EX: /dev/cpu
+	etc: Contains configuration files for intalled programs
+	home: Contains user directories
+	lib: Contains shared libraries and kernel modules
+	lost+found: orphaned files get placed here
+	media: Folders for mounting USB keys and floppy disk
+	mnt: Folders here can also be used for mounting external drives, USB keys and floppy disks
+	opt: Optional, usually empty user installed programs can go here
+	proc: 'Process', every running program will have an entry here along with associated files
+	root: Home folder for root user
+	run: Temp file that store runtime info for programs that start early in the boot up process
+	sbin: Stores binary executables typically used for administrative purposes
+	srv: Holds data used by services running on the system
+	sys: Contains information about devices on the system
+	tmp: Temporary file system
+	usr: For user controlled files
+	var: variable size folder, contains system files that tend to increase in size over time
+
+File permisions:
+	First - is for special permissions
+	Next 3 are for user owner permissions
+	Next 3 are for group owner permissions
+	Next 3 are for anyone
+	chown command changes the owner of the file
+	chgrp command changes the group owner of the file
+	chmod changes file permissions
+	RWX
+
+Enviroment Variables:
+	Enviroment variables are denoted by a '$'
+	Set or modify a variable using export command
+	Variables are cleared/reset when a terminal is closed
+	printenv prints all enviroment variables
+	PATH enviroment variable contains a list of directory paths seperated by a colon
+	which command can show us where a program is installed on our system
+	.bashrc is a bash script that is executed each time a new terminal is opened 

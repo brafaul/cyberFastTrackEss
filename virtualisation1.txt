@@ -1,0 +1,14 @@
+What is Virtualisation?:
+	Where we create a virtual computer out of software that behaves like a seperate computer
+	All hardware components of this computer are actually software
+Operating System that runs the virtualisation software is called the host operating system
+	The operating system that runs inside the virtual machine is called the guest operating system
+	Guest operating system cannot directly access resources from the host
+
+Types of Virtualisation:
+	Hypervisor: layer of code that allows multiple operating systems to share the same hardware resources
+	Type 2 Hypervisor: virtualisation is done by software that runs on an operating system EX: VMWare Workstation and Virtualbox
+	Type 1 Hypervisor: virtualisation occurs at the firmware level, the virtualisation software is essentially the host operating system EX: VMWare vSphere and Proxmox
+
+Uses of Virtualisation:
+	Cloud uses Type 1 hypervisors

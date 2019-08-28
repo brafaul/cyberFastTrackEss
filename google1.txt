@@ -1,0 +1,13 @@
+How Search Works:
+	Use software called crawlers, index all the words on a page, and follows all links on the page
+	First search result is the page that contains the most links to pages that contain terms you are searching for
+	Google strips unnecessary words out of search
+
+Commands and Colons:
+	Limits searches to a particular using the site: keyword
+	To a filetype using filetype:
+	Clever searches that reveal things that are not meant to be indexed are called Google Dorks
+
+Wildcards and Quotes:
+	* is a wildcard operator that matches any word
+	Quotes only searches for an exact term

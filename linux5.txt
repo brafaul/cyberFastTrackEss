@@ -1,0 +1,19 @@
+grep:
+	Used for searching text within files
+	Can use wildcard symbol
+	-i makes search case insensitive
+
+which:
+	Shows where in the PATH a tool is installed
+
+apropos:
+	Searches man pages for key words
+
+nano:
+	Exit by hitting CRTL + X
+
+vim:
+	CTRL + C puts us back in default mode
+	Save and quit with wq
+	q! quit with unsaved changes
+	:x saves and exit

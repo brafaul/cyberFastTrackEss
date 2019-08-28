@@ -1,0 +1,59 @@
+Email:
+	Just text sent from one email server to another and placed in your inbox
+	No encryption in inbox
+	Until recently there was no encryption in transit email
+	Most modern email support STARTTLS, uses a similar encryption to secure HTTP
+	Process of sending email:
+		1. Email is created and sent
+		2. Email transmitted to web server
+		3. Outgoing server looks up the web server responsible for the domain you are sending the email to
+		4. Outgoing server transmits the email to incoming server
+		5. Incoming server looks up the email account and saves the email to the correct inbox
+		6. Email client will sync with their inbox
+	There are two protocols at work here the SMTP(Simple Mail Transfer Protocol), and the protocol responsible for syncing the inbox(usually POP3, IMAP, or Exchange)
+	Most common mail software Microsoft Exchange, Postfix, Sendmail, and Qmail
+
+SMTP Protocol:
+	Became widely used in the 1980's
+	Connection oriented, text-based protocol
+	Each email is called SMTP transactions
+	Transactions consists of just three commands
+		-MAIL: establishes return path, bounce address(where to send error message if an error occurs), send, and other things
+		-RCPT: Establishes the address of the recipient
+		-DATA: Signifies the start of the message text. Consists of an email header(contains metadata) and email body(contents of the email itself)
+
+POP3:
+	(Post Office Protocol 3)
+	Email is stored on the server until you sync the email server
+	If you have synced with email server, email will be deleted on the email server
+	Downsides
+		-Risk losing email if computer you download them on is lost
+		-Doesn't work well across multiple devices
+
+IMAP:
+	(Internet Message Access Protocol)
+	Most common protocol in use today
+	Message remain on the server until the user specifically deletes them
+	Tracks state of each email(read and unread)
+	Also supports server side search
+
+
+Microsoft Exchange: 
+	Not strictly a protocol, rather server software
+	Implements many different protocols
+	Orginally only supported MAPI(proprietary protocol developed by Microsoft)
+	Now supports IMAP, POP3, and EAS(Exchange Active Sync)
+	Can't run exchange server on Linux
+
+Email Spoofing:
+	Anyone with an SMTP is capable of sending an email with any FROM address
+
+SPF:
+	Sender Policy Framework
+	In the DNS configuration, you put text that list all of the IP addresses of mail servers allowed to send emails from your domain
+	Problem as many people now longer host their own email, so anyone from their provider can bypass SPF
+
+DKIM:
+	Put a public key in the DNS settings for domain
+	Legitimate email is signed with private key	
+	

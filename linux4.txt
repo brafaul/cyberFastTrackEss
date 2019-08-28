@@ -1,0 +1,24 @@
+cp:
+	Short for copy, allows us to copy a file from one location to another
+	First parameter is the file you wish to copy
+	Second parameter is where you want it to be copied to
+	Can copy folders using the -r or -R parameters
+
+mkdir:
+	can make multiple directories at once using the -p parameter
+
+mv:
+	Stands for move, used to move files from one location to another
+	-n prevents overwriting a file that already exists at that location
+	-u overwrites the file if the timestamp is newer
+
+less: 
+	Used for reading long files
+	Hit q to exit it
+
+find:
+	Used to find files on a system
+	First parameter is where you want to search
+	Second is search method
+	Third is search term
+	Search partial name using the wildcard character which is '*'

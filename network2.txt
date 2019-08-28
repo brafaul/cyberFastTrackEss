@@ -1,0 +1,52 @@
+IP Addresses:
+	IPv4(Internet Protocol Version 4) are 4 bytes long, each period being one byte
+		-2^32 possible addresses
+	Network Address Translation(NAT) was designed as a way to delay the problem of running out of IPv4 addresses
+		-Router is responsible for converting packets from public to private and vice versa
+		-NAT accidentally works as a firewall by preventing people from connecting directly to your device 
+	IPv6 addresses are 16 bytes long, two bytes per :
+		-2^128 possible addresses
+		-With IPv6 each computer would have its own address, so there would be no need for NAT
+
+Subnets:
+	A way of splitting a network into segments
+	Often it on local networks inside larger organisations
+	Always need at least one subnet, even if it spans the entire networ
+	IP address is two parts, the network identifier adn host identifier
+		-Network identifies the network, host identifies the individual computer
+		-Both of these are variable so the subnet mask tells us how big each is
+	A subnet mask of 255.255.0.0 means the first two bytes are the network identifier, and the rest is the host identifier
+		-If you add more host, you can have fewer networks and vice vers
+		-If you add more host, you can have fewer networks and vice versa
+	CIDR is a shorthand way of writing subnet mask
+		-192.168.0.0/16, means the network identifier is 16 bits
+	In IPv4 there are certain addresses that are private and should never be routed to the internet
+	In IPv6 ::1 is the local host or loopback address on IPv6
+		-IPv4 subnets on IPv6 would not be pratical, would be bigger than entire IPv4 address range
+
+TCP Protocol:
+	Intial Connection setup is called the TCP handshake
+		-Computer A sends 'SYN'(synchronise) flag to Computer B, that contains a sequence number
+		- Computer B responds with a 'SYN' and 'ACK' flags set(synchronise/acknowledge), which contains a new sequence number and an acknowledgement number, which matches the sequence number sent by computer A, incremented by 1
+		-Computer A respond with a packet with the 'ACK' flag, containing the sequence number sent by computer B, incremented by 1
+	After this the conneciton is established
+	In transmission the ACK number is incremented by the len of the packet
+	When the connection ends, it is called the teardown
+		-The computer that wants to end the connection sends a 'fin' packet, containing the current sequence number
+			-ACK isn't needed to terminate the connection
+		-Computer B responds with a ACK packet containing the sequence number and acknowledgement number, which is equal to A's sequence number incremented by 1
+		-Computer B sends a 'fin/ack' packet containing a sequence number and an acknowledgement number, equal to the last one
+		-Computer A respond with an 'ack' packet containing a acknowledgement number which is Computer B's sequence number incremented by 1
+	If the connection cannot be torn down, one part can end it by sending an 'rst'(reset) packet, which ends the connection immediatly
+
+UDP:
+	Much simplier than TCP protocol, this makes UDP much faster than tcp
+
+Protocols:
+	HTTP(Hyper Text Transfer Protocol) is used in browsing websites
+		-Computer A sends a GET request, and sends some headers to give addtional information to the web server
+		-Web server responds with a code 200 OK, meaning the file exist and can be displayed
+		-Data in the file is sent
+	FTP is used to transfer files
+		-More like a back in forth conversation than http
+		-Password is sent in clear text without encryption

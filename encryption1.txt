@@ -1,0 +1,73 @@
+What is Encryption?:
+	The process of converting data from one form into another, so that only the intended recipient can understand the information
+	Most forms of encryption provide the following capabilites:
+		Authentication: Orgin of the message can be verified
+		Integrity: Proof mesage hasn't been changed
+		Non-repudiation: Sender can't deny sending the message
+	In order to encrypt a piece of data three things are necessary:
+		1. Must have original unencrypted data
+		2. Need an encryption key that will be used to encrypt the message
+		3. The encryption algorithim, a mathematical function which will take in the unencrypted data and the encryption key and produce the encrypted data from that
+	Three things needed to decrypt the data:
+		1. Encrypted data
+		2. Encryption key
+		3. Encryption algorithim
+	Best encryption algorithims are ones where the mathematical calculations are open to the public
+	Two ways of breaking encryption:
+		1. Finding a flaw in the encryption algorithim, rarely happens to mature encryption algorithims 
+		2. Guess the encryption key, usually isn't feasible
+
+Encryption vs Encoding:
+	Encoding is the transformation of data from one form to another
+	Encryption the transformation of data from one form to another so only the intended recipient can understand it
+
+Symmetric Encryption:
+	The simplest form of encryption there is
+	The encryption key is used to encrypt the message is the same as the one used to decrypt the message
+	Cesar Cipher is a form of encryption which was useb by the ancient romans where the letters of the alphabet are shifted a certain number of places
+	Today we commmonly use an encryption algorithim called AES(Advanced Encryption Standard) can support encryption keys of size 128 or 256 bits
+	Not worried only about key size but also how long it takes to preform the encryption algorithim, don't want too fast or too slow
+	Symmetric encryption has the benefit of being faster than other forms of encryption, but suffers from a serious flaw, the problem of key exchange
+		Both people need to know the encryption key, best way to tackle this is in person key exchange
+
+Lab:
+	Can encrypt message using openssl and DES algorithim:
+		openssl enc -des -in fileName -out outFileName.enc
+	Decrypt file using:
+		openssl enc -des -d -in <filetodecrypt.enc> -out <output.file>
+
+Asymmetric Encryption:
+	Relatively new advance in the encryption world
+	Every party generates two encryption keys: one private and one public
+	Public encryption key is the one you send toi whoever needs to communicate with you securly
+	Private key is only for you
+	The two encryption keys are linked mathematically
+	When someone sends a message to they encrypt their plain text with your public key, then you decrypt it using your private key
+	Also known as public key cryptography
+	Slow compared to symmetric encryption
+	Also has problem of key exchange
+
+Lab:
+	Use RSA
+	First need to generate the keypair:
+		openssl genrsa -out private.pem 2048
+	Extract public key using:
+		openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+	Encrypt file using RSA:
+		openssl rsautl -encrypt -in <yourfile.txt> -pubin -inkey public.pem -out <output.txt>
+	Decrypt file:
+	openssl rsautl -decrypt -in <cipher.txt> -inkey private.pem -out <decrypted.txt>
+
+HTTPS:
+	Uses both symmetric and asymmmetric encryption 
+	Website has an SSL certificate signed by a 'certificate authority', that acts as the public key for that website
+	Uses asymmmetric encryption to negotiate a symmetric key with the web server, which it then uses for the rest of the traffic
+
+Hashing: 
+	Third form of encryption, one-way encryption
+	Cannot reverse the process
+	Commmonly used in online login systems
+	Commonly used in computer forensics to prove that evidence has not been tampered wtih
+
+Lab:
+	Can use md5sum to hash files

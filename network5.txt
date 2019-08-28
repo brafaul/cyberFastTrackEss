@@ -1,0 +1,34 @@
+DNS:
+	Domain Name System
+	Responsible for translating a domain name into an IP address
+	Every computer must a have DNS server configured in their network settings
+	Router can use DHCP(Dynamic Host Configuration Protocol) to tell every computer to use a certain DNS server
+
+TLD:
+	DNS system is hierachical
+	System relies on one server giving info on the next DNS server to query
+	Top Level Domain is the end of the domain, such as .com
+	Authoritative Name Server control the mapping between domain name and ip address
+	Server can cache the mapping for domain name and ip address, periodically clears cache in case the mapping is updated
+
+Foward & Reverse Lookups:
+	Most common usage of DNS lookup is foward lookup, translating a domain name into an IP address
+	Reverse lookup, translating an IP address into a domain name
+	No authoritative name servers for IP addresses
+	Get around by converting IP into domain name format 1.0.168.192.in-addr.arpa(reverse address of 192.168.0.1)
+
+Recursive and Iterative Lookups:
+	DNS is a hierarchical protocol, almost never get answer you are looking for on the first query
+	Resursive Lookup, you ask a DNS server a question and if it doesn't know, it will ask another DNS server until it has an answer
+	Internet standards today call for iterative lookups
+	Iterative Lookup, you ask a DNS server a questio and it doesn't know, it will respond with the IP address of a DNS server that doesn't know, places more burden on the host asking the question
+
+DNS Records:
+	When you configure the authoritative DNS server for a particular domain, you will need to add DNS records for that domain
+	A Record: Address Mapping record. Key record that maps a domain name to an IPv4 address
+	AAAA Record: IPv6 Address Mapping record, equivalent of A record for IPv6
+	CNAME Record: 'Canonical Name' record is used to create an alias of a domain name
+	MX Record: Mail exchange record specifies the mail server responsible for handling email for that domain
+	NS Record: Name Server record points to the authoritative name server for the domain in question
+	PTR Record: Pointer record is used for reverse DNS lookups
+	TXT Record: used for storing any other textual data associated with the domain name, used a lot for SPF and DKIM for mail servers	
