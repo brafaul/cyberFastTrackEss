@@ -1,0 +1,81 @@
+Persistence:
+	Attacker's main goal at this stage is to maintain their connection over a longer period of time
+	In a penetration test we don't usually attempt persistence
+	IoCs: Indicators of Comprise are artefacts left behind on a computer by an attacker
+	Detecting persistence methods is one of the best ways to spot a compromised system
+	Simple listener that starts when a computer does and waits for an attacker to connect is persistence
+	On linux netstat can be used to search for listening ports using:
+		netstat -pultn
+	Can use lsof to list all the files open by the process:
+		lsof -p 7813
+	More creative persistence possibilities:
+		1. Open the port only at a certain time every day for a certain duration
+		2. Make a DNS request to a certain domain, and if the domain resolves to a specific IP address, open the port
+		3. If the target is a web server, change the php to start the listener when a specific request is sent to a page
+		4. Replace detection commands with custom binaries that do not show malware
+	Also use netstat on windows to find open ports with:
+		netstat -a -b -o
+	Can use process explorer from Microsoft sysinternals to find more info on a process
+
+Start-up items:
+	One of the most basic mechanisms for persistence is having malware execute on start-up
+	On Linux there are several methods to start software at boot
+	Runlevel specifies which mode the operating system is running under:
+		-0(shutdown)
+		-1(single-user mode[kind of like safe mode])
+		-2 through 5(multi-user / normal modes)
+		-6(reboot)
+	Can find current runlevel using runlevel command
+	Can find all the software that is configured to run at runlevelx in 'etc/rcX.d/'
+	On some systems the '/etc/rc.local' file can be edited to have software start at boot
+	Another method of starting processes at startup in Linux is to use systemd(if it is installed)
+	Can view a list of installed services using systemctl
+	Service files are usually located at either:
+		/lib/systemd/system/*.service
+		/etc/systemd/system/*.service
+	On Windows, the simplest way of getting malware to launch on startup is to put it in a user's startup items folder
+		C:\Users\<username>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+		C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
+	Registry can also be used to launch programs at startup
+	Great way to view these items is the use the 'Autoruns' program from Micrsoft Sysinternals
+
+Shortcuts:
+	On Windows, shortcuts can be hijacked to run code when a user is interacting with the system
+	Could edit an existing shortcut to run malware when clocked
+
+Rootkits:
+	A form of malware designed to allow an attacker back into a system at a later date, while hiding their presence
+	Two types of rootkits: 'usermode' and 'kernelmode'
+	usermode runs as a user in the system, not dissimilar to meterpreter and other types of malware we've been using so far
+		Hides its presence by replacing system binaries with custom versions which report all the right information except for information that would comprise the rootkit's presence
+	kernelmode rootkit lives in the kernel and can change the result of kernel calls
+	Things to watch out for:
+		1. Your settings keep changing without user interaction
+		2. Your input devices keep disconnecting and reconnecting
+		3. Your anti-malware software stops running and cannot be started again
+		4. Network traffic coming from the computer shows traffic on certain ports, but the computer in question reports those ports are closed
+	If malware can run at high enough privilege level, it can write directly to the disk without having to use the file system as an intermediary
+	Some bootkits can even survive after the disk has been wiped and re-partitioned by persisting in the firmware of the hard disk itself
+	Best bet to get rid of rootkit is to wipe and re-parition the drive, and install a fresh OS on it
+	Are ways of clearing up an infection but they are not recommended
+		1.Linux: rootkit hunter (rkhunter)
+		2. On windows many anti-malware suites have rootkit scanners downloadble seperatly
+		3. On Windows you can find rootkit scanners such as GMER
+
+Word Templates and Add-ins:
+	Replace the template file with one containing macro-based malware, then the malware will run each and every time the user opens Word, or any document that they save from then on
+	Few downsides:
+		1. The target must have macro warnings disabled
+		2. Anyone the target sends dicuments to could have macro warnings enabled and may alert them to a breach
+	Often used by worms to keep spreading, rather than to maintain a presence on the network because it is so detectable
+	Word allows for third parties to write add-ins which extend the functionality of Microsoft Word
+		%APPDATA%\Microsoft\Word\StartUp\
+	Uses a custom format called a '.wll' file, which can host executable code, essentially a dll
+
+Yara:
+	Signature detection tool which has become the gold standard for detecting indicators of compromise
+	Works by scanning a system and comparing the results with rules in its database, then flags the user as a possible indicator of comprise if any are found
+	Anyone can write rules for it quickly and easily
+	Can indentify common patterns such as registry keys generated or files written to the diskand tehn create rules to automate the process of finding the extent of an intrusion accross all the computers on your network
+	Find yara at: https://virustotal.github.io/yara/
+	Repository of rules: https://github.com/Yara-Rules/rules	

@@ -1,0 +1,52 @@
+Exfiltration:
+	Careless exfiltration attempt is a great way to catch an attacker, but requires the right countermeasures
+	Pay out to how data is transmitted and the scale at which data is transmitted
+
+HTTPS:
+	Most common method of exifilitration
+	Has multiple benefits:
+		1.It's encrypted
+		2.Very common protocol
+		3.Almost always allowed out from networks
+		4.Reliable
+	Few ways to detect exfiltration over HTTPS:
+		1. Consider where HTTPS traffic is going
+		2. Set up a network device to use as a web proxy
+		3. Set up a network device to use as a web proxy and enable SSL interception on it
+			-Allows you to inspect HTTPS traffic
+
+SMTP:
+	Good method of exfiltration, as many people email daily
+	If the mail server supports STARTTLS then the email will be encrypted in transit
+	Usually allowed out through the firewall
+	Especially easy when the company uses a thrid-party email provider
+	In order to catch exfiltration over SMTP it is important that you inspect outbound SMTP traffic to make sure it is being made to the company SMTP servers
+	Suprisingly difficult to detect
+
+IRC:
+	Internet Relay Chat: older chat protocol, strangely still used a lot in the tech community
+	Sees a lot of use in malware as a command and control channel. but it's major weakness is that is such an unusual vector
+	Should prevent IRC protocol from leaving a network at the firewall level
+	More modern chat protocols are more difficult to stop, will have to find ways to block each protocol independenyly
+
+DNS:
+	Clever method of exfiltrating data is to use DNS queries
+	Works by:
+		-Attacker registers fake domain
+		-Sets up a DNS server authorative for that domain
+		-Malware sends data by making DNS queries against the fake domain
+	Can be made even more subtle by encoding or encrypting the data before it leaves the network
+	First step in detection is to log all DNS queries on the network
+	Look for subdomains that look random or long and repeated queries to the same domain with different subdomains
+
+ICMP:
+	Can put data into the data field of a ping packet and send it out of the network
+	Block all ICMP packets at the firewall
+
+Sound:
+	Malware can use sound at frequencies that humans cannot hear to transmit data from the air-gapped systems
+
+The Cloud:
+	Helpful in allowing attackers to cover their tracks
+	Attacker can set up a server in these locations adn hide their connection amongst all the other traffic which goes out to the same datacenter
+	Not much you can do about this one

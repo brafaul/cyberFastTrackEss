@@ -1,0 +1,41 @@
+Windows Permissions:
+	There are two high sets of high priveleges on Windows:
+		-Administrator: allowed to do nearly anything on the system
+		-SYSTEM or Local System user is not bound by any restrictions, but normally a user cannot run as the SYSTEM user, reserved for system services which are necessary for the operating system to function
+	On Windows when an Administrator user runs a program, that program will not necessarily run with high priveleges, instead those priveleges will be dropped to lower priveleges unless they are needed
+		-If those higher priveleges are needed you will get a pop-up asking if you want to continue running the program, this is UAC or User Account Control
+
+Bypassing UAC:
+	Simpliest way to bypass is to ask, there is even a metasploit module for it
+	Can get 'SYSTEM' user using meterpreter getsystem command
+	Metasploit also has a bypassuac module which automatically tries a few different exploits to bypass UAC without user interaction
+
+Kernel Exploits:
+	Can also use kernel exploits to gain SYSTEM level priveleges 
+	Check for unpatched exploits using post/windows/gather/enum/patches
+	
+Stored Credentials:
+	In some situations, you may find passwords lying around on the file system, usually the case where the system has been built in an enterprise enviroment as an unattended install
+	Pay attention to configuration files
+
+Unquoted Service Paths:
+	Services are a great target for privilege escalation because they are executed as the SYSTEM user
+	First thing to do is to get a shell and look for any installed services that are missing quotes
+	After getting shell this way need to use post/windows/manage/migrate to keep from losing session
+
+Weak Registry Permissions:
+	Every service on Windows has a matching registry key, which holds all the information about the path to the service executable, and the other settings associated with that service
+	If the permissions on said registry are weak, any user could change the path to point to a different executable
+	Will need the subinacl.exe tool to check registry permissions, and workaround the installer using a virtual machine
+	The registry that holds info about a service is:
+		HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\<SERVICENAME>
+	Can get a list of all running services with:
+		wmic service get name,startname
+
+Weak Folder Permissions:
+	Find a service which has an executable in a folder that you are allowed to modify
+	Can list folder permissions with icacls
+
+AlwaysInstallElevated:
+	This setting can be enabled on Windows through Group Policy
+	Can install through terminal using msiexec	 

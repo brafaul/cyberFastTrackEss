@@ -1,0 +1,32 @@
+Why Privelage Escalation:
+	Most of the time you gain access to a system as an unprivilged user account
+	Don't always need superuser privelages. but most of the time it is helpful in achieving your goals to spread through the network
+	Three sets of permissions on Linux: User, Group, and Other
+	Two owners of a file: user owner and group owner
+	SUID or Set User ID permission that is set on a program to say that when it is run it can run at the same privilege level as the owner of the file
+	SGID or Set Group ID when the program is run it runs at the group owner's privilege level
+	Can set SUID using:
+		sudo chmod u+s ./demo
+
+Exploiting Services:
+	One of the best ways to privilege escalate is to find out which services are running on the box and then find exploits for them
+	Start by getting a list of all running proccess using the 'ps' command
+
+Kernel Exploits and DirtyCOW:
+	Another possible way to privilege escalate is to exploit the Linux kernel itself
+	First step is to find out what version of the kernel is currently running using uname -a
+
+Wildcard Injection:
+	Takes advantage of the way the Linux terminal supplies parameters to the commands it runs
+	Add a file with the same name as the parameter you want to add EX: a file named '-rf'
+
+SUID Files:
+	Can find files with SUID permissions using the find command
+		-4000 SUID
+		-2000 GUID
+	Watch for SUID programs that execute scripts you can write to
+	Also watch for programs that execute scripts based on enviroment variables
+
+Sudo:
+	The command that lets a normal user run things as root if the administrator has decided they can
+	Admin can determine who can run which commands as root

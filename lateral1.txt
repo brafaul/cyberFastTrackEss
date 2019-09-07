@@ -1,0 +1,42 @@
+Lateral Movement:
+	A lot of the techniques that apply in intial exploitation will continue to work during the lateral movement phase, but their are some unique challenges that an attacker faces
+	In some cases an attacker can turn the comprimised system into a proxy, routhing the connection of their own system through the comprimised system to run all their tools within the network
+	Isn't always possible sp am attacker may be limited to what they can do by what is already installed on the comprimised system or what they can install on the system
+	Attacker is at a high risk of discovery at this phase, especially if the attacker has managed to get a foothold in the DMZ
+
+ARP Cache:
+	Before you can start exploiting other targets on the network, you must first map the network
+	You may not have access to a port scanner to map the network
+	One of the most reliabel ways to build a network map is to look at the ARP cache on the comprimised computer
+	ARP (address resolution protocol) is used on local networks to map IP addresses to MAC addresses
+	IP addresses of any computers that the comprimised computer communicates with will have ARP cachce entries
+	Can display ARP cache on Windows and Linux with the command: arp -a
+	Not a complete picture of the network, but instead are the most common systems that this computer communicates with.
+		This is a good indication that traffic between these two computers is normal and unlikely to raise alarms
+
+Port Scanning:
+	On Windows you usaully have PowerShell which can be used to port scan
+	On Linux Netcat can be used as a port scanner
+	Can also use C
+
+Extracting Passwords from Memory:
+	If you achieve SYSTEM or root privileges on the staging system, you'll be able to access RAM to extract password hashes or even plaintext passwords
+	One of the most common tools for pulling passwords out of memory if Mimikatz, but most anti-malware will flag Mimikatz as malware
+
+Man in the Middle Attacks:
+	Rely on attacker inserting themselves in teh middle of communication between two systems on the network and using that to sniff traffic they wouldn't ordinarily be able to see
+	Common goal of a MITM attack is to intercept password hashes as they go across the network
+	One common method for performing a MITM attack is to exploit the ARP protocol
+	When packets are transmitted on a local network, the MAC addressed is what is used by the switch to direct the packets
+	A computer can send out an ARP request asking which computer is associated with an IP address, then the computer in question will send a ARP response containing their MAC address
+	When a ARP reponse is sent to a computer, it will sotre that value in it's ARP cache even if it didn't make a request
+	Attacker will have to continually send ARP responses throughout the attack otherwise the attack will fail
+	Can usually be detected at the switch level
+	Another common and more recent method for grabbing password hashes is to us a tool called 'responder.py' which allows us to poison the LLMNR, NBT-NS, and MDNS protocols
+	These are often used on Active Directory networks as a fallnback for when there are no entries for hosts in a DNS server
+	Generally no need to do much with repsonder.py, just run it and wait for password hashes
+
+PSExec:
+	A PowerShell module that is designed for network administrators to be able to run PowerShell commonds remotely on multiple systems at once
+	Not flagged by malware
+	Great lateral movement technique when combined with MITM attacks or Mimikatz 
