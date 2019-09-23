@@ -1,0 +1,53 @@
+File System Forensics:
+	Disk Forensics is the science of extracting information from hard disk images
+	Encase created the E01 format that is commonly used due to its ability to compress data and store metadata without affecting the original evidence
+		-Should technically be reffered to as the E0 format
+	Various part of the file system can prove useful from recent document locations, the recycle bin and prefetch to things as simple as hiding data in different paritions on the disk
+	File system can be described as the way files are named, stored and retrieved
+	Metadata is incredibly important to forensics
+	NTFS(NT File System or New Technology File System) is the file system that modern Windows Operating Systems use
+		-Master File Table(MFT) entries provide a wealth of information and are not completely removed when file deletion occurs, can be used to indentify files that once existed in a given directory
+		-Directory entries utilise a $FILE_NAME attribute to store information within the index, providing information about the file such as full file name, creation and modification time, access time, MFT chnage time, full size, and its parent directory
+	File Allocation Table or FAT is a file system used by operating system for locating files on a disk
+		-Files can become scattered around and divided into different sections
+	Extended File Systems(EXT)(EXT2)(EXT3) are implement on Linux
+		-EXT2 is the most widely used
+
+Disk Captures:
+	First action is to discover if the hard disk is encrypted with full disk encryption
+		-If the computer is on, you can use tools such as Magnet's Encrypted Disk Detector to determine if the disk has full disk encryption enable on it
+		-If the disk is encrypted do not turn it off, the computer must be imaged while it is on, known as a live capture can be with something like AccessData's FTK Imager
+	FTK Imager and other forensic capture tools will hash the disk image that was produced
+		-Note down the hash in the notebook
+
+Deleted Files:
+	Usually the first step in a forensic investigation is to retrieve and index all the files on the file system
+	Most forensic analysis software will do the search automatically, building a searchable database with keywords that can be used to find files of different types
+	There are ways to securelt delete a file, by forcing the operating system to write over the data, even after it is marked as deleted
+		-This doesn't always work on SSD's due to 'wear levelling'
+	The only way to securely deleted from an SSD drive is to destroy the drive altogether
+
+Email Forensics:
+	Used to study the source and content of email messages as evidence
+	Used to help identify the actual sender/date and time, subject and so on
+	Can use Volatility to extract .pst files out of memory
+	PST(Personal Storage Table) files are personal folder files in Microsoft Outlook, they store information such as calendar events, copies of messages, notes and other items
+		-Once extracted from memory, there are tools such as pffexport that can be used to browse the PST and discover various useful pieces of information, including sender addresses, subjects, and attachments
+
+Windows Registry and Prefetch:
+	Registry is the main collection of configuration settings and databases within the Microsoft Windows operating system
+		-regedit command can be used to access the windows registry
+
+Forensic Tools:
+	Volatility
+	FTK Imager
+	TSK/Autopsy
+
+Important Volatility Commands:
+	volatility -f mem.image imageinfo: shows the recommended OS volatility has identified
+	--profile: sets the profile
+	pslist: shows a high-level view of running processes
+	psscan: Scans memory for EPROCESS blocks
+	pstree: Displays parent-process relationships
+	filescan: Scans memory for FILE_OBJECT handles
+	dumpfiles: Extracts FILE_OBJECTS from memory
